@@ -32,13 +32,14 @@ function initMap() {
     center: {lat: -34.397, lng: 150.644},
     zoom: 12
   });
-  var infowindow = new google.maps.InfoWindow();
 
   function success(position) {
     var pos = { lat: position.coords.latitude, lng: position.coords.longitude };
-    infowindow.setPosition(pos);
-    infowindow.setContent('You are here');
-    infowindow.open(map);
+    var marker = new google.maps.Marker({
+      position: pos,
+      map: map
+    });
+
     map.setCenter(pos);
   }
 
